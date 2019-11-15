@@ -1,0 +1,12 @@
+.App {
+    box-sizing: border-box;
+    min-height: 100vh;
+    font-family: 'Work Sans', sans-serif;
+    background-color: #96C8FA;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}

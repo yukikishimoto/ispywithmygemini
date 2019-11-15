@@ -1,0 +1,117 @@
+@import '../../styles/variables';
+@import '../../styles/fonts';
+@import '../../styles/mixins';
+
+.form {
+    @include flex-column;
+    align-items: center;
+    text-align: center;
+    &--pink-background {
+        background-color: #FFBEC8;
+    }
+    &__title {
+        font-size: 44px;
+        margin-bottom: 20px;
+        padding: 0 20px;
+        @include tablet-and-up {
+            font-size: 60px;
+            margin-bottom: 36px;
+        }
+    }
+    &__subtitle {
+        font-size: 24px;
+        font-weight: 300;
+        margin-bottom: 70px;
+        padding: 0 20px;
+        @include tablet-and-up {
+            font-size: 36px;
+            margin-bottom: 100px;
+        }
+    }
+    &__form {
+        width: 100%;
+    }
+    &__selection-container {
+        @include flex-row;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 70px 20px;
+        @include tablet-and-up {
+            padding: 120px 20px;
+        }
+    }
+    &__selection-title {
+        width: 100%;
+        font-size: 20px;
+        margin-bottom: 40px;
+        @include tablet-and-up {
+            font-size: 34px;
+        }
+    }
+    &__selection {
+        max-width: 552px;
+        @include tablet-and-up {
+            max-width: 800px;
+        }
+    }
+    &__input {
+        display: none;
+    }
+    &__label {
+        position: relative;
+    }
+    &__image {
+        cursor: pointer;
+        width: 60px;
+        margin: 8px 16px 40px;
+        @include tablet-and-up {
+            width: 70px;
+            margin: 16px 24px 60px;
+        }
+    }
+    &__input:checked + &__label &__image-1 {
+        transform: scale(1.25);
+        filter: hue-rotate(120deg);
+    }
+    &__input:checked + &__label &__image-2 {
+        transform: scale(1.25);
+        filter: hue-rotate(250deg);
+    }
+    &__name {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 14px;
+        @include tablet-and-up {
+            font-size: 16px;
+        }
+    }
+    &__input:checked + &__label &__name {
+        font-weight: 600;
+    }
+    &__button-container {
+        padding: 60px 20px;
+        @include tablet-and-up {
+            padding: 120px 20px;
+        }
+    }
+    &__button {
+        cursor: pointer;
+        width: 280px;
+        height: 50px;
+        font-size: 20px;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 600;
+        background-color: rgba(255, 255, 255, 0.3);
+        border: none;
+        border-radius: 4px;
+        @include tablet-and-up {
+            width: 400px;
+            font-size: 28px;
+        }
+    }
+    &__button:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+}
