@@ -1,12 +1,15 @@
 import React from 'react';
 import './styles.scss';
 
-function Result() {
+
+function Result(props) {
+  console.log(props.zodiac)
   return (
+    
     <section className="result">
       <div className="result__container">
-        <h1 className="result__title">Zodiac1 and Zodiac2</h1>
-        <p className="result__description">Paragraph</p>
+        <h1 className="result__title">Are you compatible?</h1>
+        <p className="result__description">{props.zodiac}</p>
       </div>
     </section>
   );

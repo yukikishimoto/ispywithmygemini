@@ -1,6 +1,6 @@
 module.exports = [
 {
-aires:{
+aries:{
     aries: 'You are not compatible! When you get together for sex you are both highly competitive',
     taurus: 'You are sort of compatible.. Your relationship will work, but you will often have priorities over your partner.',
     gemini: 'You are compatible! You both are very curious in the bedroom and like to keep things interesting.',
@@ -17,7 +17,7 @@ aires:{
 },
 {
     taurus: {
-        aires: 'You are compatible!, You are so creepily similar, it works.',
+        aries: 'You are compatible!, You are so creepily similar, it works.',
         taurus: 'Yes you are compatible! Sexually speaking, Taurus-Taurus works. You both take your time and enjoy sensual love making.',
         gemini: 'No, you are not compatible! You both find each other attractive, but not when it comes to conversation. You have an inability to see things through.',
         cancer: 'Yes you are compatible! You make great parents together!.',
