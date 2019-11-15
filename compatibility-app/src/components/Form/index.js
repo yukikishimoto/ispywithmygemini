@@ -144,10 +144,17 @@ class Form extends React.Component {
   render() {
     return (
       <section className="form">
+        <div className="form__hearts">
+          <div className="form__heart"></div>
+          <div className="form__heart"></div>
+          <div className="form__heart"></div>
+          <div className="form__heart"></div>
+          <div className="form__heart"></div>
+        </div>
         <h1 className="form__title">Pick two zodiac signs.</h1>
         <h2 className="form__subtitle">We'll tell you how compatible they are.</h2>
         <form className="form__form" id="compatibility">
-          <div className="form__selection-container form--pink-background">
+          <div className="form__selection-container">
             <h3 className="form__selection-title">Select your zodiac sign:</h3>
             <div className="form__selection">
               {/* {this.createZodiacInputs(this.zodiacSigns1, "zodiac1")} */}
@@ -181,7 +188,7 @@ class Form extends React.Component {
               })}
             </div>
           </div>
-          <div className="form__button-container form--pink-background">
+          <div className="form__button-container">
             <button className="form__button" type="submit" form="compatibility">&gt;&gt; Check compatibility! &lt;&lt;</button>
           </div>
         </form>

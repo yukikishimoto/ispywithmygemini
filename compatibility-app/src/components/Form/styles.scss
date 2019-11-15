@@ -2,12 +2,75 @@
 @import '../../styles/fonts';
 @import '../../styles/mixins';
 
+@keyframes rain {
+    0% {
+        top: 0;
+        opacity: 1
+    }
+    100% {
+        bottom: 0;
+        opacity: 0
+    }
+}
+
 .form {
     @include flex-column;
     align-items: center;
     text-align: center;
     &--pink-background {
         background-color: #FFBEC8;
+    }
+    &__hearts {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    &__heart:nth-child(1) {
+        width: 60px;
+        height: 60px;
+        background-image: url("../../assets/icons/heart.png");
+        position: absolute;
+        top: 100vh;
+        left: 5vw;
+        animation: rain 5s ease-in infinite running;
+    }
+    &__heart:nth-child(2) {
+        width: 60px;
+        height: 60px;
+        background-image: url("../../assets/icons/heart.png");
+        position: absolute;
+        top: 50vh;
+        left: 30vw;
+        animation: rain 4s ease-in infinite running;
+    }
+    &__heart:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        background-image: url("../../assets/icons/heart.png");
+        position: absolute;
+        top: 70vh;
+        left: 50vw;
+        animation: rain 3s ease-in infinite running;
+    }
+    &__heart:nth-child(4) {
+        width: 60px;
+        height: 60px;
+        background-image: url("../../assets/icons/heart.png");
+        position: absolute;
+        top: 30vh;
+        left: 70vw;
+        animation: rain 5s ease-in infinite running;
+    }
+    &__heart:nth-child(5) {
+        width: 60px;
+        height: 60px;
+        background-image: url("../../assets/icons/heart.png");
+        position: absolute;
+        top: 80vh;
+        left: 80vw;
+        animation: rain 4s ease-in infinite running;
     }
     &__title {
         font-size: 44px;
@@ -16,6 +79,10 @@
         @include tablet-and-up {
             font-size: 60px;
             margin-bottom: 36px;
+        }
+        @include desktop-only {
+            font-size: 70px;
+            margin-bottom: 60px;
         }
     }
     &__subtitle {
@@ -27,9 +94,17 @@
             font-size: 36px;
             margin-bottom: 100px;
         }
+        @include desktop-only {
+            font-size: 40px;
+            margin-bottom: 130px;
+        }
     }
     &__form {
         width: 100%;
+        @include desktop-only {
+            @include flex-row;
+            flex-wrap: wrap;
+        }
     }
     &__selection-container {
         @include flex-row;
@@ -39,6 +114,17 @@
         @include tablet-and-up {
             padding: 120px 20px;
         }
+        @include desktop-only {
+            width: 50vw;
+        }
+    }
+    &__selection-container:first-child {
+        background-color: #FFBEC8;
+    }
+    &__selection-container:nth-child(2) {
+        @include desktop-only {
+            background-color: #FFBEC8;
+        }
     }
     &__selection-title {
         width: 100%;
@@ -47,11 +133,17 @@
         @include tablet-and-up {
             font-size: 34px;
         }
+        @include desktop-only {
+            font-size: 40px;
+        }
     }
     &__selection {
         max-width: 552px;
         @include tablet-and-up {
             max-width: 800px;
+        }
+        @include desktop-only {
+            max-width: 680px;
         }
     }
     &__input {
@@ -61,12 +153,15 @@
         position: relative;
     }
     &__image {
-        cursor: pointer;
         width: 60px;
         margin: 8px 16px 40px;
         @include tablet-and-up {
             width: 70px;
             margin: 16px 24px 60px;
+        }
+        @include desktop-only {
+            width: 50px;
+            margin: 24px 24px 60px;
         }
     }
     &__input:checked + &__label &__image-1 {
@@ -76,6 +171,12 @@
     &__input:checked + &__label &__image-2 {
         transform: scale(1.25);
         filter: hue-rotate(250deg);
+    }
+    &__input:hover + &__label &__image-1 {
+        transform: scale(1.25);
+    }
+    &__input:hover + &__label &__image-2 {
+        transform: scale(1.25);
     }
     &__name {
         position: absolute;
@@ -92,12 +193,16 @@
     }
     &__button-container {
         padding: 60px 20px;
+        background-color: #FFBEC8;
         @include tablet-and-up {
             padding: 120px 20px;
         }
+        @include desktop-only {
+            width: 100%;
+            background-color: #96C8FA;
+        }
     }
     &__button {
-        cursor: pointer;
         width: 280px;
         height: 50px;
         font-size: 20px;
@@ -108,7 +213,12 @@
         border-radius: 4px;
         @include tablet-and-up {
             width: 400px;
+            height: 65px;
             font-size: 28px;
+        }
+        @include desktop-only {
+            width: 500px;
+            height: 80px;
         }
     }
     &__button:hover {
