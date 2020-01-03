@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import aries1 from '../../assets/images/icons8-aries-100.png';
 import taurus1 from '../../assets/images/icons8-taurus-100.png';
 import gemini1 from '../../assets/images/icons8-gemini-100.png';
@@ -27,7 +26,6 @@ import pisces2 from '../../assets/images/icons8-pisces-100-2.png';
 import './styles.scss';
 
 class Form extends React.Component {
-
   zodiacSigns1 = [
     {
       name: "aries1",
@@ -131,12 +129,10 @@ class Form extends React.Component {
   ];
 
   submitHandler = (event) => {
-    console.log(this.props);
-    this.props.handleSubmit(event, this.props.history)
+    this.props.submitHandler(event, this.props.history);
   }
 
   render() {
-    
     return (
       <section className="form">
         <div className="form__hearts">
@@ -148,7 +144,7 @@ class Form extends React.Component {
         </div>
         <h1 className="form__title">Pick two zodiac signs.</h1>
         <h2 className="form__subtitle">We'll tell you how compatible they are.</h2>
-        <form className="form__form" id="compatibility" onSubmit={(event) => { this.submitHandler(event) }} >
+        <form className="form__form" id="compatibility" onSubmit={(event) => {this.submitHandler(event)}} >
           <div className="form__selection-container form--pink-background">
             <h3 className="form__selection-title">Select your zodiac sign:</h3>
             <div className="form__selection">
@@ -157,7 +153,7 @@ class Form extends React.Component {
                   <React.Fragment key={zodiacSign.name}>
                     <input className="form__input" type="radio" name="zodiac1" id={zodiacSign.name} value={zodiacSign.name.slice(0, -1)} />
                     <label className="form__label" htmlFor={zodiacSign.name}>
-                      <img className="form__image form__image-1" src={zodiacSign.image} alt={`${zodiacSign.name} zodiac`} />
+                      <img className="form__image form__image-1" src={zodiacSign.image} alt={`${zodiacSign.name.slice(0, -1)} zodiac`} />
                       <span className="form__name">{zodiacSign.name.slice(0, -1)}</span>
                     </label>
                   </React.Fragment>
@@ -171,9 +167,9 @@ class Form extends React.Component {
               {this.zodiacSigns2.map(zodiacSign => {
                 return (
                   <React.Fragment key={zodiacSign.name}>
-                    <input className="form__input" type="radio" name="zodiac2" id={zodiacSign.name} value={zodiacSign.name.slice(0, -1)}/>
+                    <input className="form__input" type="radio" name="zodiac2" id={zodiacSign.name} value={zodiacSign.name.slice(0, -1)} />
                     <label className="form__label" htmlFor={zodiacSign.name}>
-                      <img className="form__image form__image-2" src={zodiacSign.image} alt={`${zodiacSign.name} zodiac`} />
+                      <img className="form__image form__image-2" src={zodiacSign.image} alt={`${zodiacSign.name.slice(0, -1)} zodiac`} />
                       <span className="form__name">{zodiacSign.name.slice(0, -1)}</span>
                     </label>
                   </React.Fragment>
@@ -183,14 +179,11 @@ class Form extends React.Component {
           </div>
           <div className="form__button-container">
             <button className="form__button" type="submit" form="compatibility">&gt;&gt; Check compatibility! &lt;&lt;</button>
-
           </div>
         </form>
       </section>
-      
     );
   }
 }
 
 export default Form;
-

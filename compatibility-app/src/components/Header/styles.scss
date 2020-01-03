@@ -10,10 +10,9 @@
         padding: 80px 0;
     }
     &__logo-link {
-        z-index: 1000;
+        z-index: 2;
     }
     &__logo-image {
-        
         width: 250px;
         @include tablet-and-up {
             width: 400px;

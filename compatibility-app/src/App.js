@@ -1,53 +1,53 @@
 import React from 'react';
-import axios from 'axios';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import axios from 'axios';
 import Header from './components/Header';
 import Form from './components/Form';
 import Result from './components/Result';
 import './App.scss';
 
 class App extends React.Component {
-
-  state ={
+  state = {
     zodiac: ''
   }
 
-  
-  handleSubmit = (event, history) => {
+  submitHandler = (event, history) => {
+    event.preventDefault();
+
     const option1 = event.target.zodiac1.value;
     const option2 = event.target.zodiac2.value;
-    event.preventDefault();
-    axios.get('http://localhost:8080/horoscopes')
-    .then(response =>{
-      //callback(response.data.find(item => item[option1])[option1][option2]);
-      console.log(response.data.find(item => item[option1])[option1][option2]);
+
+    if (!option1 || !option2) {
+      alert("Please select both zodiac signs.");
+      return;
+    }
+
+    axios
+    .get("http://localhost:8080/horoscopes")
+    .then((response) => {
       this.setState({
         zodiac: response.data.find(item => item[option1])[option1][option2]
       }, () => { 
-        history.push('/result');
+        history.push("/result");
       });
-
     })
-    .catch(error =>{
-      alert('error')
-    })
+    .catch(() => {
+      alert("There was an error in the request for compatibility data from the server.");
+    });
   }
 
-  
-  
   render() {
-  console.log(this.state.zodiac)
-  return (
-    <div className="App">
-      <BrowserRouter className="router">
-        <Header />
-        <Switch>
-          <Route path="/" exact render= { (routerProps)=> <Form { ...routerProps } handleSubmit={this.handleSubmit}/> } />
-          <Route path="/result" render={() => <Result zodiac = {this.state.zodiac} />} />
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Header />
+          <Switch>
+            <Route path="/" exact render= {(routerProps) => <Form {...routerProps} submitHandler={this.submitHandler}/>} />
+            <Route path="/result" render={() => <Result zodiac={this.state.zodiac} />} />
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
   }
 }
 

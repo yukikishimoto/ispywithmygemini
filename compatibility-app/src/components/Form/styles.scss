@@ -27,55 +27,42 @@
         width: 100vw;
         height: 100vh;
     }
-    &__heart:nth-child(1) {
+    &__heart {
         width: 60px;
         height: 60px;
         background-image: url("../../assets/icons/heart.png");
         position: absolute;
-        top: 100vh;
-        left: 5vw;
-        animation: rain 5s ease-in infinite running;
-    }
-    &__heart:nth-child(2) {
-        width: 60px;
-        height: 60px;
-        background-image: url("../../assets/icons/heart.png");
-        position: absolute;
-        top: 50vh;
-        left: 30vw;
-        animation: rain 4s ease-in infinite running;
-    }
-    &__heart:nth-child(3) {
-        width: 60px;
-        height: 60px;
-        background-image: url("../../assets/icons/heart.png");
-        position: absolute;
-        top: 70vh;
-        left: 50vw;
-        animation: rain 3s ease-in infinite running;
-    }
-    &__heart:nth-child(4) {
-        width: 60px;
-        height: 60px;
-        background-image: url("../../assets/icons/heart.png");
-        position: absolute;
-        top: 30vh;
-        left: 70vw;
-        animation: rain 5s ease-in infinite running;
-    }
-    &__heart:nth-child(5) {
-        width: 60px;
-        height: 60px;
-        background-image: url("../../assets/icons/heart.png");
-        position: absolute;
-        top: 80vh;
-        left: 80vw;
-        animation: rain 4s ease-in infinite running;
+        &:nth-child(1) {
+            top: 100vh;
+            left: 5vw;
+            animation: rain 5s ease-in infinite running;
+        }
+        &:nth-child(2) {
+            top: 50vh;
+            left: 30vw;
+            animation: rain 4s ease-in infinite running;
+        }
+        &:nth-child(3) {
+            top: 70vh;
+            left: 50vw;
+            animation: rain 3s ease-in infinite running;
+        }
+        &:nth-child(4) {
+            top: 30vh;
+            left: 70vw;
+            animation: rain 5s ease-in infinite running;
+        }
+        &:nth-child(5) {
+            top: 80vh;
+            left: 80vw;
+            animation: rain 4s ease-in infinite running;
+        }
     }
     &__title {
+        z-index: 1;
         font-size: 44px;
-        margin-bottom: 20px;
         padding: 0 20px;
+        margin-bottom: 20px;
         @include tablet-and-up {
             font-size: 60px;
             margin-bottom: 36px;
@@ -86,8 +73,9 @@
         }
     }
     &__subtitle {
-        font-size: 24px;
+        z-index: 1;
         font-weight: 300;
+        font-size: 24px;
         margin-bottom: 70px;
         padding: 0 20px;
         @include tablet-and-up {
@@ -115,15 +103,15 @@
             padding: 120px 20px;
         }
         @include desktop-only {
-            width: 50vw;
+            width: 50%;
         }
-    }
-    &__selection-container:first-child {
-        background-color: #FFBEC8;
-    }
-    &__selection-container:nth-child(2) {
-        @include desktop-only {
+        &:first-child {
             background-color: #FFBEC8;
+        }
+        &:nth-child(2) {
+            @include desktop-only {
+                background-color: #FFBEC8;
+            }
         }
     }
     &__selection-title {
@@ -164,6 +152,9 @@
             margin: 24px 24px 60px;
         }
     }
+    &__input:hover + &__label &__image {
+        transform: scale(1.25);
+    }
     &__input:checked + &__label &__image-1 {
         transform: scale(1.25);
         filter: hue-rotate(120deg);
@@ -171,12 +162,6 @@
     &__input:checked + &__label &__image-2 {
         transform: scale(1.25);
         filter: hue-rotate(250deg);
-    }
-    &__input:hover + &__label &__image-1 {
-        transform: scale(1.25);
-    }
-    &__input:hover + &__label &__image-2 {
-        transform: scale(1.25);
     }
     &__name {
         position: absolute;
@@ -205,14 +190,14 @@
     &__button {
         width: 280px;
         height: 50px;
-        font-size: 20px;
         font-family: 'Work Sans', sans-serif;
         font-weight: 600;
+        font-size: 20px;
         background-color: rgba(255, 255, 255, 0.3);
         border: none;
-        border-radius: 4px;
+        border-radius: 10px;
         @include tablet-and-up {
-            width: 400px;
+            width: 460px;
             height: 65px;
             font-size: 28px;
         }
@@ -220,8 +205,11 @@
             width: 500px;
             height: 80px;
         }
-    }
-    &__button:hover {
-        background-color: rgba(255, 255, 255, 0.6);
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        &:focus {
+            outline: none;
+        }
     }
 }
