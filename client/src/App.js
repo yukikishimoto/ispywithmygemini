@@ -23,7 +23,7 @@ class App extends React.Component {
     }
 
     axios
-    .get("http://localhost:8080/horoscopes")
+    .get(`${process.env.REACT_APP_SERVER || ''}/horoscopes`)
     .then((response) => {
       this.setState({
         zodiac: response.data.find(item => item[option1])[option1][option2]

@@ -9,10 +9,10 @@
 ## Screenshots
 
 **Main Page:**
-![Screenshot 1](src/assets/images/screenshot1.png)
+![Screenshot 1](client/src/assets/images/screenshot1.png)
 
 **Result Page:**
-![Screenshot 2](src/assets/images/screenshot2.png)
+![Screenshot 2](client/src/assets/images/screenshot2.png)
 
 ## Technologies
 

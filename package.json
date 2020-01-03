@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "iSpyWithMyGemini",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:prod": "cross-env NODE_ENV=production nodemon index.js",
+    "start:client": "cd client && npm start",
+    "build:client": "cd client && npm run build",
+    "setup:all": "npm install && cd client && npm install",
+    "setup:client:prod": "cd client && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.0.2",
+    "cors": "^2.8.5",
+    "cross-env": "^6.0.3",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
+  }
+}
